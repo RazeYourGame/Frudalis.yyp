@@ -1,0 +1,19 @@
+
+
+FIXED
+Guard can now return to his home state and patrol around it without getting stuck in waiting animation
+Have fixed variable definitions for Guard State, so now can start guard in any state.
+Created new test guard, who can currently chase after player and then will return to a set spot. The guard
+can also be goaded in between these states to chase the player and break sequence.
+
+BROKEN / THINGS FOR NEXT TIME
+Vision cone colour change when spotted is now broken, but doesn't seem to be impacting the behaviour.
+Issue where guard will get stuck in ALERT phase if he spots the character at end of PURSUE phase. Will add back in the ATTACK phase and
+see if having a break between phases fixes the issue as there'll always be a transition.
+When falling off ledges, hitting a wall will prevent falling.
+Guards also need to fall faster, to improve sense of weight.
+
+
+
+
+

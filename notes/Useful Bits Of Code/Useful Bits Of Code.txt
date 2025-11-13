@@ -1,0 +1,16 @@
+
+
+// A way to check if certain instances of an object are doing a thing. debug_instance is saved as a
+variable definition.
+
+if (debug_instance) {
+    show_debug_message(my_state);
+}
+
+
+
+// Shows the current Case of an enemy's AI behaviour.
+show_debug_message (my_state);
+
+// Shows how much time is left for an alarm to trigger.
+show_debug_message("Alarm[0] time left: " + string(alarm[0]));
