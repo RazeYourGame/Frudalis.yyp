@@ -21,8 +21,8 @@ if (place_meeting(x,y+y_speed,obj_wall))
 y = y + y_speed;
 
 
-
-
+// Always reset spotted to false when not being observed by enemy
+spotted = false;
 
 
 
@@ -113,6 +113,29 @@ switch my_state {
 	break;
 	
 	
+	case GUARD_STATE.ATTACK:
+    // Face the player while attacking
+    if (instance_exists(obj_player)) {
+        image_xscale = sign(obj_player.x - x);
+    }
+
+    // If we no longer see the player, chase their last known position
+    if (!spotted && instance_exists(obj_player)) {
+        last_known_x = obj_player.x;
+        my_state = GUARD_STATE.PURSUE;
+        alarm_triggered = false;
+        can_fire = true;
+        alarm[2] = -1; // cancel any pending shot just in case
+    }
+
+    // If we DO see the player and haven't fired yet, schedule a shot
+    if (spotted && can_fire) {
+        can_fire = false;
+        alarm[2] = 1; // fire next step
+    }
+break;
+	
+	
 	case GUARD_STATE.PURSUE:
 	
  // Move along X only toward last_known_x
@@ -155,11 +178,7 @@ case GUARD_STATE.RETURN:
 break;
 }
 
-
 var dx = x - xprevious;
 if (dx != 0) image_xscale = sign(dx);
-
-// Always reset spotted to false when not being observed by enemy
-spotted = false;
 
 show_debug_message(my_state);

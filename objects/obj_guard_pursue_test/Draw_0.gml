@@ -27,7 +27,7 @@ var p3y = y_bottom;
 var p4x = x_end;
 var p4y = y_top;
 
-if spotted = false
+if spotted == false
 	{
 	draw_primitive_begin(pr_trianglestrip);
 	draw_vertex_colour(p1x, p1y, c_yellow, 0.1);

@@ -1,11 +1,15 @@
-// Alarm[0] only fires if we have gone 4 seconds *without* seeing the player
-// If we get here, we must not currently be spotting the player
-if spotted == false {
-	last_known_x = obj_player.x;
-    my_state = GUARD_STATE.PURSUE;
-	alarm_triggered = false;
-	
+// Alarm[0] fires after the reaction/pause time while in ALERT
+
+if (spotted) {
+    // We still see the player after pausing – go into ATTACK state
+    my_state = GUARD_STATE.ATTACK;
 } else {
-    // Safety: if somehow still true, keep pausing
-    alarm[0] = reaction_time;
+    // Lost sight during the pause – pursue last known position instead
+    if (instance_exists(obj_player)) {
+        last_known_x = obj_player.x;
+    }
+    my_state = GUARD_STATE.PURSUE;
 }
+
+// Allow the ALERT logic to trigger again in future
+alarm_triggered = false;
