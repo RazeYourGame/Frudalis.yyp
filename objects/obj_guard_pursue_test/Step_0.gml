@@ -1,4 +1,31 @@
 /// @description Guard behaviours
+
+
+// --- GUARD STEP BREAK 1 --- POSSESS
+if (my_state == GUARD_STATE.POSSESS) {
+	instance_destroy();
+    exit; // <- stops the rest of the Step from running, no other cases are processed
+}
+
+
+// --- GUARD STEP BREAK 2 --- POSSESS
+if (my_state == GUARD_STATE.DIE) {
+    exit; // <- stops the rest of the Step from running, no other cases are processed
+}
+
+
+
+// --- GUARD STEP BREAK 1 --- POSSESS
+if (my_state == GUARD_STATE.WIN) {
+	spotted = false;
+	my_state = GUARD_STATE.RETURN;
+    exit; // <- stops the rest of the Step from running, no other cases are processed
+}
+
+
+
+
+
 // Movement and fall speeds
 x_speed = walk_speed;
 y_speed = y_speed + grav;
@@ -54,6 +81,53 @@ if (instance_exists(obj_player)) {
 
 
 
+if (obj_player.player_poss == true) {
+    my_state = GUARD_STATE.POSSESS;
+}
+
+
+
+
+
+
+
+
+
+
+// --- 1. Define weak spot in LOCAL coords (relative to enemy origin) ---
+var local_x1 = -45;
+var local_x2 =  45;
+var local_y1 = -sprite_height + 60// a bit above the top of sprite
+var local_y2 = -sprite_height - 60// small vertical band
+
+// --- 2. Convert to ROOM coords ---
+var world_x1 = x + local_x1;
+var world_y1 = y + local_y1;
+var world_x2 = x + local_x2;
+var world_y2 = y + local_y2;
+
+// Make sure x1 <= x2, y1 <= y2 (just in case)
+var rx1 = min(world_x1, world_x2);
+var rx2 = max(world_x1, world_x2);
+var ry1 = min(world_y1, world_y2);
+var ry2 = max(world_y1, world_y2);
+
+// --- 3. Check if the PLAYER is inside that rectangle ---
+var p = instance_place((obj_player.x), (obj_player.y), obj_player);
+
+if (p != noone) {
+    // Example: use the player's feet position
+    var px = p.x;
+    var py = p.bbox_bottom;
+
+    if (px >= rx1 && px <= rx2 && py >= ry1 && py <= ry2) {
+        guard_possessable = true;
+    }
+}
+
+
+local_x1 = -45 * current_dir;
+local_x2 =  45 * current_dir;
 
 
 
@@ -177,6 +251,9 @@ case GUARD_STATE.RETURN:
 
 break;
 }
+
+
+
 
 var dx = x - xprevious;
 if (dx != 0) image_xscale = sign(dx);

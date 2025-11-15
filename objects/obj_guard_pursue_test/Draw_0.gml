@@ -46,3 +46,44 @@ if spotted == false
 	draw_primitive_end();
 	}
 
+
+
+
+
+/// --- DRAW EVENT (add this AFTER drawing the sprite) ---
+
+// 1. Define the weak spot rectangle in LOCAL coords (relative to enemy origin)
+var local_x1 = -45;
+var local_x2 =  45;
+var local_y1 = -sprite_height + 60// a bit above the top of sprite
+var local_y2 = -sprite_height - 60// small vertical band
+
+// If the enemy flips horizontally, factor this in:
+local_x1 *= current_dir;
+local_x2 *= current_dir;
+
+// 2. Convert to ROOM (world) coords
+var rx1 = x + local_x1;
+var rx2 = x + local_x2;
+var ry1 = y + local_y1;
+var ry2 = y + local_y2;
+
+// Normalise ordering (just in case)
+var x1 = min(rx1, rx2);
+var x2 = max(rx1, rx2);
+var y1 = min(ry1, ry2);
+var y2 = max(ry1, ry2);
+
+// 3. DRAW the rectangle
+draw_set_alpha(0.4);            // slightly transparent fill
+draw_set_color(c_aqua);         // or any colour you want
+draw_rectangle(x1, y1, x2, y2, false);
+
+// Draw a stronger outline
+draw_set_alpha(1);
+draw_set_color(c_teal);
+draw_rectangle(x1, y1, x2, y2, true);
+
+// Reset draw state
+draw_set_alpha(1);
+draw_set_color(c_white);

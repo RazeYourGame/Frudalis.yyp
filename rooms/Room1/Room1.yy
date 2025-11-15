@@ -25,7 +25,6 @@
     {"name":"inst_E034EA9","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_53B79E5C","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_6F04B47C","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_24B50F0B","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_4315F495","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_C4FD579","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_381C1D78","path":"rooms/Room1/Room1.yy",},
@@ -48,6 +47,7 @@
     {"name":"inst_9C80482","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_78F40865","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_61B7E09A","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_6C8D3011","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -60,7 +60,7 @@
         {"$GMRInstance":"v4","%Name":"inst_41B58E04","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_41B58E04","objectId":{"name":"obj_hiding_grass","path":"objects/obj_hiding_grass/obj_hiding_grass.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2160.0,"y":960.0,},
       ],"layers":[],"name":"Stealth","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Player","depth":100,"effectEnabled":true,"effectType":null,"gridX":60,"gridY":60,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v4","%Name":"inst_24B50F0B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_24B50F0B","objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":120.0,"y":420.0,},
+        {"$GMRInstance":"v4","%Name":"inst_6C8D3011","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6C8D3011","objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":120.0,"y":420.0,},
       ],"layers":[],"name":"Player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Enemy","depth":200,"effectEnabled":true,"effectType":null,"gridX":60,"gridY":60,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_4315F495","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4315F495","objectId":{"name":"obj_guard","path":"objects/obj_guard/obj_guard.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2160.0,"y":1380.0,},

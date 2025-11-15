@@ -1,6 +1,6 @@
 /// @description ATTACK shot resolution
 
-if (spotted && instance_exists(obj_player)) {
+if spotted == true && instance_exists(obj_player) {
     // Still see the player at the moment of firing – take the shot
     audio_play_sound(snd_laser_gun, 1, false);
 
@@ -13,16 +13,16 @@ if (spotted && instance_exists(obj_player)) {
 
     // If your damage system destroys the player on 0 HP,
     // you can branch here if you like:
-    if (!instance_exists(obj_player)) {
+    if obj_player.player_dead == true {
         // Player died – go back to patrol
-        my_state = GUARD_STATE.PATROL;
+        my_state = GUARD_STATE.WIN;
     } else {
         // Player somehow survived – stay alert/attack
         my_state = GUARD_STATE.ALERT;
     }
 } else {
     // Lost sight before we could shoot: switch to PURSUE
-    if (instance_exists(obj_player)) {
+    if obj_player.player_dead == false {
         last_known_x = obj_player.x;
     }
     my_state = GUARD_STATE.PURSUE;

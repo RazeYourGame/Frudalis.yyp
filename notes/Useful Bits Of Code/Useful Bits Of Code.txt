@@ -14,3 +14,11 @@ show_debug_message (my_state);
 
 // Shows how much time is left for an alarm to trigger.
 show_debug_message("Alarm[0] time left: " + string(alarm[0]));
+
+
+
+// Quick button option to kill the player and test death states
+if key_jump
+	{
+	player_health -= 1;
+	}

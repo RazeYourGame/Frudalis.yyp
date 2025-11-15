@@ -8,6 +8,9 @@ enum GUARD_STATE {
 	PURSUE,
 	ATTACK,
 	RETURN,
+	WIN,
+	DIE,
+	POSSESS,
 	WORK,
 }
 

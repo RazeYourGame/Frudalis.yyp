@@ -1,6 +1,6 @@
-// Alarm[0] fires after the reaction/pause time while in ALERT
+/// @description ALERT to PURSUE state change after reaction time.
 
-if (spotted) {
+if spotted == true {
     // We still see the player after pausing – go into ATTACK state
     my_state = GUARD_STATE.ATTACK;
 } else {

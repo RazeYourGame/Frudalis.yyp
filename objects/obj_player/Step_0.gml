@@ -6,6 +6,8 @@ key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);
 key_up = keyboard_check(vk_up);
 key_down = keyboard_check(vk_down);
+key_possess = keyboard_check(vk_lshift);
+
 
 // Calculate movement
 var _move = key_right - key_left;
@@ -14,15 +16,14 @@ var _climb = key_up - key_down;
 x_speed = _move * walk_speed;
 y_speed = y_speed + grav;
 
-if key_jump
-	{
-	player_health -= 1;
-	}
 
-if (player_health <= 0)
+
+if (player_health <= 0) && player_dead = false
 	{
-    instance_destroy(obj_player);
-    room_restart();
+	image_alpha = 0;
+	walk_speed = 0;
+	player_dead = true;
+	alarm[0] = 240;
 	}
 	
 // Jump (but not for Player)
@@ -101,4 +102,9 @@ else
 	}
 }
 
+
+// Determine if player is in possession state
+if obj_guard_pursue_test.guard_possessable == true && key_possess {
+	player_poss = true;
+}
 

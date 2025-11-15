@@ -6,6 +6,7 @@ x_speed = 0;
 y_speed = 0;
 grav = 0.3;
 walk_speed = 1.5;
+guard_possessable = false;
 my_state = start_state;
 
 

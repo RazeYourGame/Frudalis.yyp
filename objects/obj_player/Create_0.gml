@@ -6,6 +6,8 @@ grav = 0.3;
 walk_speed = 4;
 player_visible = true;
 on_wire = false;
+player_poss = false;
+player_dead = false;
 
 
 player_health = 1;
