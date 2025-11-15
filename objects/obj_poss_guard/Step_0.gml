@@ -1,6 +1,15 @@
 /// @description Player ongoing settings
-// Player input
 
+
+with (obj_player) {
+    possessed_target_x = other.x;
+    possessed_target_y = other.y;
+	possession_pending = true;
+}
+
+
+
+// Player input
 key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_jump = keyboard_check_pressed(vk_space);

@@ -3,6 +3,10 @@
 
 // --- GUARD STEP BREAK 1 --- POSSESS
 if (my_state == GUARD_STATE.POSSESS) {
+	// Before destroying guard
+	var dead_x = x;
+	var dead_y = y;
+	instance_create_layer(dead_x,dead_y,"Player",obj_poss_guard);
 	instance_destroy();
     exit; // <- stops the rest of the Step from running, no other cases are processed
 }

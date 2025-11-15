@@ -18,6 +18,24 @@ y_speed = y_speed + grav;
 
 
 
+if possession_pending == true {
+
+    var new_inst = obj_poss_guard;
+	player_locked_target = new_inst;  // ⬅ store the instance ID to follow
+    possession_pending   = false;
+}
+
+if (player_locked_target != noone && instance_exists(player_locked_target)) {
+    x = player_locked_target.x;
+    y = player_locked_target.y;
+    // exit; // uncomment if you want to skip normal movement while possessed
+}
+
+
+
+
+
+
 if (player_health <= 0) && player_dead = false
 	{
 	image_alpha = 0;
@@ -103,8 +121,14 @@ else
 }
 
 
-// Determine if player is in possession state
-if obj_guard_pursue_test.guard_possessable == true && key_possess {
-	player_poss = true;
+// Determine if player is in possession state and there is a guard to possess
+if (instance_exists(obj_guard_pursue_test)) {
+    if (obj_guard_pursue_test.guard_possessable == true && key_possess) {
+        player_poss = true;
+		image_alpha = 0;
+		walk_speed = 0;
+    }
 }
+
+
 
